@@ -34,7 +34,7 @@ public class Produto {
 	
 	@JsonBackReference // Comando para evitar a referência cíclica
 	@ManyToMany
-	@JoinTable(name = "produto_categoria",
+	@JoinTable(name = "PRODUTO_CATEGORIA",
 			joinColumns = @JoinColumn(referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(referencedColumnName = "id")
 	)
