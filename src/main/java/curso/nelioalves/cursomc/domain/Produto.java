@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import lombok.Data;
@@ -17,23 +19,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Categoria {
+public class Produto {
 
 	@Id
-	@GeneratedValue(
-		strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@EqualsAndHashCode.Include
 	private Integer id;
 	
 	@EqualsAndHashCode.Include
 	private String nome;
 	
-	@ManyToMany(mappedBy = "categorias")
-	private List<Produto> produtos = new ArrayList<Produto>();
+	@EqualsAndHashCode.Include
+	private Double preco;
+	
+	@ManyToMany
+	@JoinTable(name = "produto_categoria",
+			joinColumns = @JoinColumn(referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(referencedColumnName = "id")
+	)
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 
-	public Categoria(Integer id, String nome) {
+	public Produto(Integer id, String nome, Double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.preco = preco;
 	}
 }
