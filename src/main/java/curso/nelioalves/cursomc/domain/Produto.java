@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -32,6 +34,7 @@ public class Produto {
 	@EqualsAndHashCode.Include
 	private Double preco;
 	
+	@JsonBackReference // Comando para evitar a referência cíclica
 	@ManyToMany
 	@JoinTable(name = "produto_categoria",
 			joinColumns = @JoinColumn(referencedColumnName = "id"),
