@@ -28,10 +28,8 @@ public class Produto {
 	@EqualsAndHashCode.Include
 	private Integer id;
 	
-	@EqualsAndHashCode.Include
 	private String nome;
 	
-	@EqualsAndHashCode.Include
 	private Double preco;
 	
 	@JsonBackReference // Comando para evitar a referência cíclica
