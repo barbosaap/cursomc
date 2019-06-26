@@ -3,6 +3,8 @@ package curso.nelioalves.cursomc.domain;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -13,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class ItemPedido {
 
+	@JsonIgnore
 	@EmbeddedId
 	@EqualsAndHashCode.Include
 	private ItemPedidoPK id = new ItemPedidoPK();
@@ -32,6 +35,7 @@ public class ItemPedido {
 		this.preco = preco;
 	}
 	
+	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
