@@ -6,10 +6,12 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import curso.nelioalves.cursomc.domain.Cliente;
+import curso.nelioalves.cursomc.services.validation.ClienteUpdate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+@ClienteUpdate
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
