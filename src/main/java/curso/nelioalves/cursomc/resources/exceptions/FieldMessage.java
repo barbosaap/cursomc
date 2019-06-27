@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class StandardError {
+public class FieldMessage {
 
-	private Integer status;
-	private String msg;
-	private Long timeStamp;
+	private String fieldName;
+	private String message;
 }
